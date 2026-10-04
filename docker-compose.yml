@@ -1,0 +1,10 @@
+services:
+  db:
+    image: postgres:16
+    environment: {POSTGRES_USER: aether, POSTGRES_PASSWORD: aether, POSTGRES_DB: aetherops}
+    healthcheck: {test: ["CMD-SHELL","pg_isready -U aether"], interval: 5s, retries: 10}
+  app:   # FastAPI + simulator/inference engine + static frontend (one container; engine runs in its own thread)
+    build: {context: ., dockerfile: docker/Dockerfile}
+    environment: {DATABASE_URL: "postgresql://aether:aether@db:5432/aetherops"}
+    depends_on: {db: {condition: service_healthy}}
+    ports: ["8000:8000"]

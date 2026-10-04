@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+numpy
+pandas
+scikit-learn
+joblib
+torch
+psycopg[binary]

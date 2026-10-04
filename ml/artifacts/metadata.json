@@ -1,0 +1,22 @@
+{
+ "model_version": "gcn_lstm-20261004",
+ "active_model": "gcn_lstm",
+ "window": 10,
+ "horizon": 5,
+ "threshold": 0.9,
+ "trained_models": [
+  "logistic_regression",
+  "random_forest",
+  "lstm",
+  "gcn",
+  "gcn_lstm"
+ ],
+ "split": {
+  "train_runs": 251,
+  "val_runs": 54,
+  "test_runs": 55,
+  "note": "chronological by run order; scaler fit on train only"
+ },
+ "data": "synthetic output of simulator/sim.py",
+ "note": "GCN+LSTM only listed if PyTorch was available at training time"
+}

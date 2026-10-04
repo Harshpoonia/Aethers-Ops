@@ -1,0 +1,91 @@
+{
+ "services": [
+  "gateway",
+  "auth",
+  "product",
+  "order",
+  "payment",
+  "db"
+ ],
+ "labels": {
+  "gateway": "API Gateway",
+  "auth": "Authentication Service",
+  "product": "Product Service",
+  "order": "Order Service",
+  "payment": "Payment Service",
+  "db": "Database"
+ },
+ "topology": {
+  "gateway": [
+   "auth",
+   "product",
+   "order"
+  ],
+  "order": [
+   "payment"
+  ],
+  "payment": [
+   "db"
+  ]
+ },
+ "metrics": [
+  "cpu",
+  "memory",
+  "request_rate",
+  "latency_ms",
+  "error_rate",
+  "network_mbps",
+  "connections"
+ ],
+ "window_minutes": 10,
+ "horizon_minutes": 5,
+ "alert_threshold": 0.5,
+ "failure": {
+  "error_rate_pct": 20.0,
+  "definition": "A service is FAILED when its observed error rate >= error_rate_pct (health check failing) or an explicit sudden-failure injection occurs. Failure is sticky until reset."
+ },
+ "demo": {
+  "tick_seconds_demo": 2.0,
+  "tick_seconds_real": 60.0,
+  "sim_minutes_per_tick": 1
+ },
+ "split": {
+  "train": 0.7,
+  "val": 0.15,
+  "test": 0.15
+ },
+ "training": {
+  "n_runs": 360,
+  "seed": 7
+ },
+ "bounds": {
+  "cpu": [
+   0,
+   100
+  ],
+  "memory": [
+   0,
+   100
+  ],
+  "request_rate": [
+   0,
+   100000
+  ],
+  "latency_ms": [
+   0,
+   60000
+  ],
+  "error_rate": [
+   0,
+   100
+  ],
+  "network_mbps": [
+   0,
+   100000
+  ],
+  "connections": [
+   0,
+   100000
+  ]
+ }
+}

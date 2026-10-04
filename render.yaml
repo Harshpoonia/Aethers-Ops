@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: aetherops
+    runtime: docker
+    dockerfilePath: docker/Dockerfile
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_URL
+        sync: false   # set to your Neon connection string in the Render dashboard
