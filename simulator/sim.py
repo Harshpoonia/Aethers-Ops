@@ -25,6 +25,9 @@ SCENARIOS = {  # kind -> (default target, ramp ticks, level)
     "cpu_saturation": ("order", 12, 1.0),
     "network_latency": ("product", 14, 1.0),
     "sudden_failure": ("payment", 0, 1.0),
+    "auth_degradation": ("auth", 14, 1.0),
+    "product_degradation": ("product", 14, 1.0),
+    "order_degradation": ("order", 14, 1.0),
 }
 
 class Sim:
