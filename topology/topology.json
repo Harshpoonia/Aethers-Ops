@@ -5,7 +5,11 @@
   "product",
   "order",
   "payment",
-  "db"
+  "db",
+  "cache",
+  "inventory",
+  "search",
+  "invdb"
  ],
  "labels": {
   "gateway": "API Gateway",
@@ -13,13 +17,27 @@
   "product": "Product Service",
   "order": "Order Service",
   "payment": "Payment Service",
-  "db": "Database"
+  "db": "Database",
+  "cache": "Session Cache",
+  "inventory": "Inventory Service",
+  "search": "Search Service",
+  "invdb": "Inventory Database"
  },
  "topology": {
   "gateway": [
    "auth",
    "product",
    "order"
+  ],
+  "auth": [
+   "cache"
+  ],
+  "product": [
+   "inventory",
+   "search"
+  ],
+  "inventory": [
+   "invdb"
   ],
   "order": [
    "payment"
@@ -87,5 +105,41 @@
    0,
    100000
   ]
+ },
+ "journeys": {
+  "checkout": {
+   "title": "Checkout",
+   "path": [
+    "gateway",
+    "order",
+    "payment",
+    "db"
+   ]
+  },
+  "browse": {
+   "title": "Browse products",
+   "path": [
+    "gateway",
+    "product",
+    "inventory",
+    "invdb"
+   ]
+  },
+  "search": {
+   "title": "Search",
+   "path": [
+    "gateway",
+    "product",
+    "search"
+   ]
+  },
+  "login": {
+   "title": "Login",
+   "path": [
+    "gateway",
+    "auth",
+    "cache"
+   ]
+  }
  }
 }

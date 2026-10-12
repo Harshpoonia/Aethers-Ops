@@ -10,9 +10,9 @@ def make_plan(rng):
     tgt = SERVICES[rng.integers(N)]; start = int(rng.integers(15, 30))
     if u < 0.37: return {"kind": "blip", "target": tgt, "start": start, "ramp": int(rng.integers(8, 20)), "level": float(rng.uniform(.45, .75))}, 70
     if u < 0.50: return {"kind": "sudden_failure", "target": tgt, "start": start, "ramp": 0, "level": 1.0}, start + 15
-    ramp = int(rng.integers(8, 30)); kind = str(rng.choice(["database_degradation", "payment_degradation", "cpu_saturation", "network_latency"]))
-    if kind == "database_degradation": tgt = "db"
-    if kind == "payment_degradation": tgt = "payment"
+    ramp = int(rng.integers(8, 30)); kind = str(rng.choice(["database_degradation", "payment_degradation", "inventory_db_degradation", "search_degradation", "cache_degradation", "cpu_saturation", "network_latency"]))
+    fixed = {"database_degradation": "db", "payment_degradation": "payment", "inventory_db_degradation": "invdb", "search_degradation": "search", "cache_degradation": "cache"}
+    tgt = fixed.get(kind, tgt)
     return {"kind": kind, "target": tgt, "start": start, "ramp": ramp, "level": float(rng.uniform(.95, 1.1))}, start + ramp + 12
 
 def gen_runs(n, seed):

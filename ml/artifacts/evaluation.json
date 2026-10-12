@@ -1,238 +1,278 @@
 {
  "models": {
   "logistic_regression": {
-   "precision": 0.7479166666666667,
-   "recall": 0.7804347826086957,
-   "f1": 0.7638297872340426,
-   "pr_auc": 0.7771615027811178,
-   "roc_auc": 0.9639059653170099,
-   "fpr": 0.009119686463671993,
-   "fnr": 0.21956521739130436,
-   "tp": 359,
-   "fp": 121,
-   "fn": 101,
-   "tn": 13147,
+   "precision": 0.6498422712933754,
+   "recall": 0.8015564202334631,
+   "f1": 0.7177700348432056,
+   "pr_auc": 0.7160836602814212,
+   "roc_auc": 0.9638610966874726,
+   "fpr": 0.009748386246871295,
+   "fnr": 0.19844357976653695,
+   "tp": 412,
+   "fp": 222,
+   "fn": 102,
+   "tn": 22551,
    "threshold": 0.9,
    "early_warning": {
-    "incidents": 92,
-    "detected": 77,
-    "missed": 15,
-    "pct_detected": 0.8369565217391305,
-    "mean_lead_min": 4.675324675324675,
+    "incidents": 104,
+    "detected": 87,
+    "missed": 17,
+    "pct_detected": 0.8365384615384616,
+    "mean_lead_min": 4.7701149425287355,
+    "median_lead_min": 5.0,
+    "false_alert_episodes": 26,
+    "by_scenario": {
+     "sudden_failure": {
+      "detected": 2,
+      "incidents": 18
+     },
+     "search_degradation": {
+      "detected": 18,
+      "incidents": 18
+     },
+     "cpu_saturation": {
+      "detected": 12,
+      "incidents": 12
+     },
+     "inventory_db_degradation": {
+      "detected": 26,
+      "incidents": 27
+     },
+     "database_degradation": {
+      "detected": 11,
+      "incidents": 11
+     },
+     "network_latency": {
+      "detected": 12,
+      "incidents": 12
+     },
+     "payment_degradation": {
+      "detected": 6,
+      "incidents": 6
+     }
+    }
+   },
+   "val_pr_auc": 0.6924254095373223
+  },
+  "random_forest": {
+   "precision": 0.7962184873949579,
+   "recall": 0.7373540856031129,
+   "f1": 0.7656565656565657,
+   "pr_auc": 0.7941087861575005,
+   "roc_auc": 0.9473599701059058,
+   "fpr": 0.004259430026786106,
+   "fnr": 0.26264591439688717,
+   "tp": 379,
+   "fp": 97,
+   "fn": 135,
+   "tn": 22676,
+   "threshold": 0.675,
+   "early_warning": {
+    "incidents": 104,
+    "detected": 86,
+    "missed": 18,
+    "pct_detected": 0.8269230769230769,
+    "mean_lead_min": 4.465116279069767,
+    "median_lead_min": 5.0,
+    "false_alert_episodes": 15,
+    "by_scenario": {
+     "sudden_failure": {
+      "detected": 1,
+      "incidents": 18
+     },
+     "search_degradation": {
+      "detected": 18,
+      "incidents": 18
+     },
+     "cpu_saturation": {
+      "detected": 12,
+      "incidents": 12
+     },
+     "inventory_db_degradation": {
+      "detected": 26,
+      "incidents": 27
+     },
+     "database_degradation": {
+      "detected": 11,
+      "incidents": 11
+     },
+     "network_latency": {
+      "detected": 12,
+      "incidents": 12
+     },
+     "payment_degradation": {
+      "detected": 6,
+      "incidents": 6
+     }
+    }
+   },
+   "val_pr_auc": 0.7546844825944907
+  },
+  "lstm": {
+   "precision": 0.6486486486486487,
+   "recall": 0.8404669260700389,
+   "f1": 0.7322033898305085,
+   "pr_auc": 0.781881658998392,
+   "roc_auc": 0.9665026301711307,
+   "fpr": 0.010275326043999474,
+   "fnr": 0.15953307392996108,
+   "tp": 432,
+   "fp": 234,
+   "fn": 82,
+   "tn": 22539,
+   "threshold": 0.9,
+   "early_warning": {
+    "incidents": 104,
+    "detected": 88,
+    "missed": 16,
+    "pct_detected": 0.8461538461538461,
+    "mean_lead_min": 4.9772727272727275,
+    "median_lead_min": 5.0,
+    "false_alert_episodes": 28,
+    "by_scenario": {
+     "sudden_failure": {
+      "detected": 2,
+      "incidents": 18
+     },
+     "search_degradation": {
+      "detected": 18,
+      "incidents": 18
+     },
+     "cpu_saturation": {
+      "detected": 12,
+      "incidents": 12
+     },
+     "inventory_db_degradation": {
+      "detected": 27,
+      "incidents": 27
+     },
+     "database_degradation": {
+      "detected": 11,
+      "incidents": 11
+     },
+     "network_latency": {
+      "detected": 12,
+      "incidents": 12
+     },
+     "payment_degradation": {
+      "detected": 6,
+      "incidents": 6
+     }
+    }
+   },
+   "val_pr_auc": 0.7625885321357236
+  },
+  "gcn": {
+   "precision": 0.6688963210702341,
+   "recall": 0.7782101167315175,
+   "f1": 0.7194244604316546,
+   "pr_auc": 0.754355401594279,
+   "roc_auc": 0.9558720383770734,
+   "fpr": 0.008694506652614939,
+   "fnr": 0.22178988326848248,
+   "tp": 400,
+   "fp": 198,
+   "fn": 114,
+   "tn": 22575,
+   "threshold": 0.9,
+   "early_warning": {
+    "incidents": 104,
+    "detected": 96,
+    "missed": 8,
+    "pct_detected": 0.9230769230769231,
+    "mean_lead_min": 4.229166666666667,
     "median_lead_min": 5.0,
     "false_alert_episodes": 19,
     "by_scenario": {
      "sudden_failure": {
-      "detected": 1,
-      "incidents": 16
+      "detected": 10,
+      "incidents": 18
+     },
+     "search_degradation": {
+      "detected": 18,
+      "incidents": 18
      },
      "cpu_saturation": {
-      "detected": 8,
-      "incidents": 8
+      "detected": 12,
+      "incidents": 12
      },
-     "network_latency": {
-      "detected": 17,
-      "incidents": 17
-     },
-     "payment_degradation": {
-      "detected": 36,
-      "incidents": 36
+     "inventory_db_degradation": {
+      "detected": 27,
+      "incidents": 27
      },
      "database_degradation": {
-      "detected": 15,
-      "incidents": 15
+      "detected": 11,
+      "incidents": 11
+     },
+     "network_latency": {
+      "detected": 12,
+      "incidents": 12
+     },
+     "payment_degradation": {
+      "detected": 6,
+      "incidents": 6
      }
     }
    },
-   "val_pr_auc": 0.7310054466444089
-  },
-  "random_forest": {
-   "precision": 0.8938992042440318,
-   "recall": 0.7326086956521739,
-   "f1": 0.8052568697729988,
-   "pr_auc": 0.8239685412253922,
-   "roc_auc": 0.9471293304583766,
-   "fpr": 0.0030147723846849564,
-   "fnr": 0.2673913043478261,
-   "tp": 337,
-   "fp": 40,
-   "fn": 123,
-   "tn": 13228,
-   "threshold": 0.7000000000000001,
-   "early_warning": {
-    "incidents": 92,
-    "detected": 76,
-    "missed": 16,
-    "pct_detected": 0.8260869565217391,
-    "mean_lead_min": 4.4605263157894735,
-    "median_lead_min": 5.0,
-    "false_alert_episodes": 7,
-    "by_scenario": {
-     "sudden_failure": {
-      "detected": 0,
-      "incidents": 16
-     },
-     "cpu_saturation": {
-      "detected": 8,
-      "incidents": 8
-     },
-     "network_latency": {
-      "detected": 17,
-      "incidents": 17
-     },
-     "payment_degradation": {
-      "detected": 36,
-      "incidents": 36
-     },
-     "database_degradation": {
-      "detected": 15,
-      "incidents": 15
-     }
-    }
-   },
-   "val_pr_auc": 0.7855943121331722
-  },
-  "lstm": {
-   "precision": 0.7229601518026565,
-   "recall": 0.8282608695652174,
-   "f1": 0.7720364741641338,
-   "pr_auc": 0.8100049464817777,
-   "roc_auc": 0.9688211093051605,
-   "fpr": 0.01100391920410009,
-   "fnr": 0.17173913043478262,
-   "tp": 381,
-   "fp": 146,
-   "fn": 79,
-   "tn": 13122,
-   "threshold": 0.9,
-   "early_warning": {
-    "incidents": 92,
-    "detected": 77,
-    "missed": 15,
-    "pct_detected": 0.8369565217391305,
-    "mean_lead_min": 4.9480519480519485,
-    "median_lead_min": 5.0,
-    "false_alert_episodes": 20,
-    "by_scenario": {
-     "sudden_failure": {
-      "detected": 1,
-      "incidents": 16
-     },
-     "cpu_saturation": {
-      "detected": 8,
-      "incidents": 8
-     },
-     "network_latency": {
-      "detected": 17,
-      "incidents": 17
-     },
-     "payment_degradation": {
-      "detected": 36,
-      "incidents": 36
-     },
-     "database_degradation": {
-      "detected": 15,
-      "incidents": 15
-     }
-    }
-   },
-   "val_pr_auc": 0.8070296462429993
-  },
-  "gcn": {
-   "precision": 0.685981308411215,
-   "recall": 0.7978260869565217,
-   "f1": 0.7376884422110552,
-   "pr_auc": 0.7809770714138219,
-   "roc_auc": 0.9570699689347368,
-   "fpr": 0.012662044015676817,
-   "fnr": 0.20217391304347826,
-   "tp": 367,
-   "fp": 168,
-   "fn": 93,
-   "tn": 13100,
-   "threshold": 0.9,
-   "early_warning": {
-    "incidents": 92,
-    "detected": 81,
-    "missed": 11,
-    "pct_detected": 0.8804347826086957,
-    "mean_lead_min": 4.530864197530864,
-    "median_lead_min": 5.0,
-    "false_alert_episodes": 18,
-    "by_scenario": {
-     "sudden_failure": {
-      "detected": 5,
-      "incidents": 16
-     },
-     "cpu_saturation": {
-      "detected": 8,
-      "incidents": 8
-     },
-     "network_latency": {
-      "detected": 17,
-      "incidents": 17
-     },
-     "payment_degradation": {
-      "detected": 36,
-      "incidents": 36
-     },
-     "database_degradation": {
-      "detected": 15,
-      "incidents": 15
-     }
-    }
-   },
-   "val_pr_auc": 0.7573932183747895
+   "val_pr_auc": 0.7251474924277919
   },
   "gcn_lstm": {
-   "precision": 0.7588235294117647,
-   "recall": 0.841304347826087,
-   "f1": 0.797938144329897,
-   "pr_auc": 0.8342571533691674,
-   "roc_auc": 0.9740143005072681,
-   "fpr": 0.009270425082906241,
-   "fnr": 0.15869565217391304,
-   "tp": 387,
-   "fp": 123,
-   "fn": 73,
-   "tn": 13145,
+   "precision": 0.636231884057971,
+   "recall": 0.8540856031128404,
+   "f1": 0.729235880398671,
+   "pr_auc": 0.7791724387406578,
+   "roc_auc": 0.9724555633753603,
+   "fpr": 0.011021824089931059,
+   "fnr": 0.14591439688715954,
+   "tp": 439,
+   "fp": 251,
+   "fn": 75,
+   "tn": 22522,
    "threshold": 0.9,
    "early_warning": {
-    "incidents": 92,
-    "detected": 86,
+    "incidents": 104,
+    "detected": 98,
     "missed": 6,
-    "pct_detected": 0.9347826086956522,
-    "mean_lead_min": 4.5,
+    "pct_detected": 0.9423076923076923,
+    "mean_lead_min": 4.540816326530612,
     "median_lead_min": 5.0,
-    "false_alert_episodes": 22,
+    "false_alert_episodes": 37,
     "by_scenario": {
      "sudden_failure": {
-      "detected": 10,
-      "incidents": 16
+      "detected": 12,
+      "incidents": 18
+     },
+     "search_degradation": {
+      "detected": 18,
+      "incidents": 18
      },
      "cpu_saturation": {
-      "detected": 8,
-      "incidents": 8
+      "detected": 12,
+      "incidents": 12
      },
-     "network_latency": {
-      "detected": 17,
-      "incidents": 17
-     },
-     "payment_degradation": {
-      "detected": 36,
-      "incidents": 36
+     "inventory_db_degradation": {
+      "detected": 27,
+      "incidents": 27
      },
      "database_degradation": {
-      "detected": 15,
-      "incidents": 15
+      "detected": 11,
+      "incidents": 11
+     },
+     "network_latency": {
+      "detected": 12,
+      "incidents": 12
+     },
+     "payment_degradation": {
+      "detected": 6,
+      "incidents": 6
      }
     }
    },
-   "val_pr_auc": 0.8210565950082679
+   "val_pr_auc": 0.7619010563860396
   }
  },
  "meta": {
-  "model_version": "gcn_lstm-20261004",
+  "model_version": "gcn_lstm-20261012",
   "active_model": "gcn_lstm",
   "window": 10,
   "horizon": 5,

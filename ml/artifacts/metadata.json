@@ -1,5 +1,5 @@
 {
- "model_version": "gcn_lstm-20261004",
+ "model_version": "gcn_lstm-20261012",
  "active_model": "gcn_lstm",
  "window": 10,
  "horizon": 5,

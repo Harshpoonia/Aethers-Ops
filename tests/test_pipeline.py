@@ -21,3 +21,14 @@ def test_preprocessing_validation():
     bad = dict(row, timestamp="nonsense"); out = dict(row, timestamp="2026-01-01T00:01:00Z", cpu=999, error_rate="x")
     df, rep = validate_frame(pd.DataFrame([row, row, bad, out]))
     assert rep["duplicates"] == 1 and rep["bad_timestamps"] == 1 and rep["outliers_clipped"] >= 1 and df["cpu"].max() <= 100
+
+def test_topology_and_new_scenarios():
+    from simulator.sim import SERVICES, CALLS, SCENARIOS
+    assert len(SERVICES) == 10 and set(CALLS["product"]) == {"inventory", "search"}
+    for k in ("inventory_db_degradation", "search_degradation", "cache_degradation"): assert k in SCENARIOS
+    from backend.engine import Engine
+    for k in ("inventory_db_degradation", "search_degradation", "cache_degradation"):
+        E = Engine(); E.start(k)
+        for _ in range(45):
+            with E.lock: E._tick(sleep=False)
+        assert E.alerts and E.incidents, k

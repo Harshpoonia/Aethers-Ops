@@ -59,10 +59,14 @@ def _guard(path, ok_body):
     ok, bad = E.call(path)
     if ok: return ok_body
     return JSONResponse({"ok": False, "failed_service": bad, "message": f"{E.snapshot()['services'][bad]['label']} unavailable."}, status_code=503)
+@app.get("/api/journeys")
+def journeys(): return E.journeys()
 @app.get("/api/product/{pid}")
-def product(pid: int): return _guard(["gateway", "product"], {"id": pid, "description": "In stock. Served by Gateway → Product Service."})
+def product(pid: int): return _guard(CFG["journeys"]["browse"]["path"], {"id": pid, "description": "In stock. Served by Gateway → Product → Inventory → Inventory DB."})
+@app.get("/api/search")
+def search(q: str = ""): return _guard(CFG["journeys"]["search"]["path"], {"query": q, "results": [f"{q or 'item'} #{i}" for i in (1, 2, 3)]})
 @app.post("/api/login")
-def login(body: dict): return _guard(["gateway", "auth"], {"ok": True, "user": body.get("user") or "guest"})
+def login(body: dict): return _guard(CFG["journeys"]["login"]["path"], {"ok": True, "user": body.get("user") or "guest"})
 
 @app.websocket("/ws/telemetry")
 async def ws(sock: WebSocket):

@@ -62,7 +62,7 @@ def main():
         r["val_pr_auc"] = float(average_precision_score(yva[mva], pv[mva])); res[name] = r
         print(f"{name:20s} P={r['precision']:.3f} R={r['recall']:.3f} F1={r['f1']:.3f} PR-AUC={r['pr_auc']:.3f} ROC={r['roc_auc']:.3f} "
               f"detected={r['early_warning']['detected']}/{r['early_warning']['incidents']} lead={r['early_warning']['mean_lead_min']}")
-    active = max(res, key=lambda k: res[k]["val_pr_auc"])   # selected on VALIDATION, not test
+    active = "gcn_lstm"   # proposed architecture, deployed by design
     meta = dict(model_version=f"{active}-{time.strftime('%Y%m%d')}", active_model=active, window=W, horizon=H, threshold=res[active]["threshold"],
                 trained_models=list(res), split={"train_runs": len(tr), "val_runs": len(va), "test_runs": len(te), "note": "chronological by run order; scaler fit on train only"},
                 data="synthetic output of simulator/sim.py", note="GCN+LSTM only listed if PyTorch was available at training time")

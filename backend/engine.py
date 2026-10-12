@@ -90,6 +90,13 @@ class Engine:
             if self.last_failed[IDX[s]]: return False, s
         return True, None
 
+    def journeys(self):
+        out = {}
+        for k, j in CFG["journeys"].items():
+            ok, bad = self.call(j["path"]); risk = [s for s in j["path"] if self.state_of(IDX[s]) in ("at_risk", "degraded")]
+            out[k] = {"title": j["title"], "path": j["path"], "ok": ok, "failed_service": bad, "at_risk": risk}
+        return out
+
     def checkout(self):
         path = ["gateway", "order", "payment", "db"]
         for s in path:

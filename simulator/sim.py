@@ -22,12 +22,12 @@ SCENARIOS = {  # kind -> (default target, ramp ticks, level)
     "normal": (None, 0, 0),
     "database_degradation": ("db", 16, 1.0),
     "payment_degradation": ("payment", 14, 1.0),
+    "inventory_db_degradation": ("invdb", 16, 1.0),
+    "search_degradation": ("search", 14, 1.0),
+    "cache_degradation": ("cache", 14, 1.0),
     "cpu_saturation": ("order", 12, 1.0),
     "network_latency": ("product", 14, 1.0),
     "sudden_failure": ("payment", 0, 1.0),
-    "auth_degradation": ("auth", 14, 1.0),
-    "product_degradation": ("product", 14, 1.0),
-    "order_degradation": ("order", 14, 1.0),
 }
 
 class Sim:
